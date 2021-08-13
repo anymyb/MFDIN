@@ -4,7 +4,7 @@ This is the test version of MFDIN.
 ## Dependencies and Installation
 
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
-- [PyTorch >= 1.0](https://pytorch.org/)   (PyTorch1.1 is confirmed to be available)
+- [PyTorch >= 1.1](https://pytorch.org/)   (PyTorch1.1 is confirmed to be available)
 - NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
 - [Deformable Convolution](https://arxiv.org/abs/1703.06211). We use [Charles Shang](https://github.com/CharlesShang)'s [DCNv2](https://github.com/CharlesShang/DCNv2) implementation. Please first compile it.
   ```

@@ -18,7 +18,7 @@ We provide some test sets:  [download here](https://drive.google.com/drive/folde
 
 Synthetic test set:  ```../datasets/yk_test```
 
-Real old movies:  ```../datasets/real-old-videos```
+Real old videos:  ```../datasets/real-old-videos```
 
 ## Get Started
 - Reproduce results with PSNR/SSIM

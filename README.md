@@ -1,5 +1,6 @@
 # MFDIN-test
 This is the test version of MFDIN. 
+Other versions of the code will be sorted and released as soon as possible.
 
 ## Dependencies and Installation
 

@@ -1,0 +1,69 @@
+#### general settings
+name: MFDIN_crf2428_2P
+use_tb_logger: true
+model: video_base
+distortion: sr
+scale: 1
+gpu_ids: [1]
+
+#### datasets
+datasets:
+  train:
+    name: YouKu
+    mode: Vimeo90K
+    interval_list: [1]
+    random_reverse: false
+    border_mode: false
+    dataroot_GT: ../datasets/Youku/Youku_train_GT_2P.lmdb
+    dataroot_LQ: ../datasets/Youku/Youku_train_DI.lmdb
+    cache_keys: ~
+
+    N_frames: 3
+    use_shuffle: true
+    n_workers: 3  # per GPU
+    batch_size: 8
+    GT_size: 128
+    LQ_size: 128
+    use_flip: false
+    use_rot: false
+    color: RGB
+
+#### network structures
+network_G:
+  which_model_G: MFDIN_OLD2P
+  nf: 64
+  groups: 4
+  front_RBs: 5
+  back_RFAs: 2
+  HR_in: true
+  nfields: 5
+
+#### path
+path:
+  pretrain_model_G: ~
+  strict_load: true
+  resume_state: ~
+
+#### training settings: learning rate scheme, loss
+train:
+  lr_G: !!float 4e-4
+  lr_scheme: CosineAnnealingLR_Restart
+  beta1: 0.9
+  beta2: 0.99
+  niter: 400000
+  warmup_iter: -1  # -1: no warm up
+  T_period: [400000]
+  restarts: [400000]
+  restart_weights: [1]
+  eta_min: !!float 1e-7
+
+  pixel_criterion: cb
+  pixel_weight: 1.0
+  val_freq: !!float 1e3
+
+  manual_seed: 0
+
+#### logger
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 1e3
